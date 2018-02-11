@@ -1,0 +1,8 @@
+12:38:38    - PingHost    - An exception occurred during a Ping request.
+12:41:31    - PingHost    - An exception occurred during a Ping request.
+12:41:51    - PingHost    - An exception occurred during a Ping request.
+12:42:56    - PingHost    - An exception occurred during a Ping request.
+12:43:23    - PingHost    - An exception occurred during a Ping request.
+12:44:59    - PingHost    - An exception occurred during a Ping request.
+12:55:10    - bConnectToPrinter    - No connection could be made because the target machine actively refused it 127.0.0.1:10100
+20:34:22    - bConnectToPrinter    - No connection could be made because the target machine actively refused it 127.0.0.1:10100

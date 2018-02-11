@@ -1,0 +1,79 @@
+﻿<Window x:Class="MultiDownloader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vw="clr-namespace:MultiDownloader.Views"
+        Title="{Binding Title}"  Height="350" Width="525" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*" />
+            <RowDefinition Height="0.7*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0" Background="Black" CornerRadius="10" BorderThickness="3">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Multiple Printer Downloader - JP NANO" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontWeight="Bold" FontSize="18"/>
+                <TextBlock Text="{Binding Version}"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        
+        <Grid Grid.Row="1" Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*" />
+                <ColumnDefinition Width="0.8*" />
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0">
+                <Button Content="Connect"  Command="{Binding ConnectCommand}"/>
+                <Button Content="Disconnect"  Command="{Binding DisconnectCommand}"/>
+                <Button Content="Download" Command="{Binding DownloadFileCommand}"/>
+                <Button Content="Start Print" Command="{Binding StartPrintCommand}"/>
+                <Button Content="Stop Print" Command="{Binding StopPrintCommand}"/>
+                <Button Content="Add/Remove Printer" Command="{Binding AddRemovePrinterCommand}"/>
+            </StackPanel>
+            
+           
+            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="3" CornerRadius="10" Margin="5">
+                <ItemsControl Grid.Row="1" Grid.Column="1" ItemsSource="{Binding ControlList}" Margin="5" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <vw:ucPrinter />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+
+                </ItemsControl>
+            </Border>
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*" />
+                <ColumnDefinition Width="0.3*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <TextBlock Text="File To Download:   " />
+                    <TextBlock Text="{Binding FileToDownload}" />
+                </StackPanel>
+                
+               
+            </Grid>
+            <Image Grid.Column="1" Source="..\Resources\Cyklop_1.png" />
+        </Grid>
+        
+        
+    </Grid>
+</Window>

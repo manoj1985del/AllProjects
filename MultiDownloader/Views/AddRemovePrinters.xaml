@@ -1,0 +1,79 @@
+﻿<Window x:Class="MultiDownloader.Views.AddRemovePrinters"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddRemovePrinters" Height="300" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        
+        <Border Grid.Row="0" BorderThickness="3" BorderBrush="Black" CornerRadius="5" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.8*" />
+                </Grid.RowDefinitions>
+                
+                <TextBlock Grid.Row="0" Text="Add Printer" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.4*" />
+                        <ColumnDefinition Width="0.6*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="IPAddress" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Name" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+                    <TextBox Grid.Row="0" Grid.Column="1" Width="100" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding IPAddress, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="100" Margin="5" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    
+                    <Button Grid.Row="2" Grid.Column="1" Content="Add Printer" Width="100" Height="20" HorizontalAlignment="Left" Margin="5" Command="{Binding AddPrinterCommand}" />
+
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" BorderThickness="3" BorderBrush="Black" CornerRadius="5" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.8*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Remove Printer" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*" />
+                        <ColumnDefinition Width="0.3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <ListBox Grid.Column="0" Margin="5" ItemsSource="{Binding PrinterList}" SelectedItem="{Binding PrinterToRemove, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding IPAddress}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Row="1" Content="Remove" Margin="5" Command="{Binding RemovePrinterCommand}" />
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

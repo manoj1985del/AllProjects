@@ -1,0 +1,116 @@
+#	Config(456.dle-14.2  )
+#confiiguration file parameters are as follows
+# Format of the config file is as folloes
+#           <variable> = <value>
+# '#' represents the comment
+# if varaiable has many values the variabe is defined as <varaible>_options
+# The value to be picked up if many options are present for the system is of the nature <variable>_default
+#if any variable has only 2 options like ON/OFF ,0:off and 1:on 
+font_default=F1
+
+##############printer parameters#######################
+#head1=0/1 where 0:off, 1:on
+head1=1
+head2=0
+head_options=0,1
+
+#Flip image has the options as below(0-3)
+#	0:Forward
+#	1:Inverted
+#	2:Reverse
+#	3:Inv-reverse
+flip_image_default=0
+flip_image_options=0,1,2,3
+#sensor 
+external_sensor_default=0
+external_sensor_options=0,1
+
+#Sensor Action
+#	0:Raising 
+#	1:Falling
+trigger_on_edge=0
+trigger_on_edge_options=0,1
+sensors_enable=1
+pen_select=1
+buffer_columns=150
+#encoder options
+encoder_default=0
+encoder_options=0,1
+encoder_ppi_default=355
+encoder_ppr=2500
+encoder_ppi_options=1,2,42
+counter_reset_value=0
+#purge=head1/head2
+purge_options=1,2
+#printing DPI 
+dpi_default=600
+dpi_h_default=600
+dpi_v_default=600
+dpi_options=600,300,150,75
+high_speed=0
+# offset between the time object is sensed and the print enabled,
+		    #traverse up to Offset option in the main menu 
+#in microseconds
+offset=30
+offset_type=1
+print_distance=0
+encoder_dia=9.5
+#File exensions allowed in the printer system
+#only these files/ files with extension will be shown on GUI
+allowed_font_files=f1.tar.gz,f2.tar.gz
+message_extensions=.dle
+upgrade_extensions=.fwr.tar.gz,.fwr
+#0:variable speed repeat type 
+#1:Time delay between each print
+repeat_print=0
+repeat_offset=0
+repeat_type=0
+repeat_print_distance=0
+# printer_status:1 :ok 0: not ok
+printer_status=1
+#direction LTR/RTL RTL:1,LTR:0
+direction=1
+#printer speed in inches/sec in the range(1-200)
+printer_speed_default=1060
+printer_speed_options=5,10,15,20
+#Counter config values (Refer DALE Protocol_VXXX.doc for lates format)
+#There are 10 counters present in the system and all the formats are as follows
+#object: <n>:<Object Type>=Attribute Values
+
+#	Counter - Attributes
+
+#	--------------------
+#	a.current = decimal value
+#	b.min
+#	c.max
+#	d.start (0:min 1:current)
+#	e.digits
+#	f.step
+#	g.repeat (0:no repeat 1:repeat)
+#	h.type = 0 (up counter)/1 (down counter)
+#	i.leading=0 (zero) /1(blank space)
+#	j.loop = 1 (yes in circular mode)/ 0 – stop print
+#	k.file counter=0:Normal counter 1:Read the counter value from the file
+#	l.FileCounterDigits(Maximum 200)
+#	m.foffset=offset from the begining of the file in byte
+
+#Date counter
+
+#--------------
+#	a. format = %d/%m/%YY
+#	b. pdate = no. of days (None – 0, month = 30, year = 365)
+
+#Print Overlays
+
+#--------------
+#	a.xpos
+#	b.ypos
+#	c.font
+#	d.Print counter description
+#	e. barcode = 0:print as normal text 1:print as barcode
+#	f. barcode Identifier = number which represents the brcd object
+object:1:ictr=0
+object:2:ictr=0
+object:3:ictr=0
+object:4:ictr=0
+pic_buf_size=29000
